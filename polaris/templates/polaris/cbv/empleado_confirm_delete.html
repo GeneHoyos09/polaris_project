@@ -1,0 +1,15 @@
+{% extends 'polaris/base.html' %}
+
+{% block title %}Eliminar empleado (VBC){% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Eliminar empleado <small class="text-muted fs-6">(VBC)</small></h1>
+
+<p>¿Está seguro de que desea eliminar al empleado <strong>{{ empleado }}</strong>?</p>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Sí, eliminar</button>
+    <a href="{% url 'cbv:empleado_list' %}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}

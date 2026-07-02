@@ -1,0 +1,71 @@
+{% extends 'polaris/base.html' %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+<h1 class="mb-1">✨ Bienvenido</h1>
+<p class="text-muted mb-4">
+    CRUD de <strong>Cargos</strong> y <strong>Empleados</strong> implementado dos veces: con
+    Vistas Basadas en Funciones (VBF) y con Vistas Basadas en Clases (VBC).
+</p>
+
+<div class="row g-4">
+    <div class="col-6 col-lg-3">
+        <a href="{% url 'fbv:cargo_list' %}" class="text-decoration-none">
+            <div class="stat-card stat-orange p-4 text-center">
+                <div class="stat-icon">🏷️</div>
+                <div class="stat-number">{{ total_cargos }}</div>
+                <div class="stat-label">Cargos (VBF)</div>
+            </div>
+        </a>
+    </div>
+    <div class="col-6 col-lg-3">
+        <a href="{% url 'fbv:empleado_list' %}" class="text-decoration-none">
+            <div class="stat-card stat-green p-4 text-center">
+                <div class="stat-icon">👥</div>
+                <div class="stat-number">{{ total_empleados }}</div>
+                <div class="stat-label">Empleados (VBF)</div>
+            </div>
+        </a>
+    </div>
+    <div class="col-6 col-lg-3">
+        <a href="{% url 'cbv:cargo_list' %}" class="text-decoration-none">
+            <div class="stat-card stat-blue p-4 text-center">
+                <div class="stat-icon">🏷️</div>
+                <div class="stat-number">{{ total_cargos }}</div>
+                <div class="stat-label">Cargos (VBC)</div>
+            </div>
+        </a>
+    </div>
+    <div class="col-6 col-lg-3">
+        <a href="{% url 'cbv:empleado_list' %}" class="text-decoration-none">
+            <div class="stat-card stat-pink p-4 text-center">
+                <div class="stat-icon">👥</div>
+                <div class="stat-number">{{ total_empleados }}</div>
+                <div class="stat-label">Empleados (VBC)</div>
+            </div>
+        </a>
+    </div>
+</div>
+
+<div class="row g-4 mt-2">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-primary">Vistas Basadas en Funciones (VBF)</div>
+            <div class="card-body">
+                <a href="{% url 'fbv:cargo_list' %}" class="btn btn-outline-primary w-100 mb-2">Cargos</a>
+                <a href="{% url 'fbv:empleado_list' %}" class="btn btn-outline-primary w-100">Empleados</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-success">Vistas Basadas en Clases (VBC)</div>
+            <div class="card-body">
+                <a href="{% url 'cbv:cargo_list' %}" class="btn btn-outline-success w-100 mb-2">Cargos</a>
+                <a href="{% url 'cbv:empleado_list' %}" class="btn btn-outline-success w-100">Empleados</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

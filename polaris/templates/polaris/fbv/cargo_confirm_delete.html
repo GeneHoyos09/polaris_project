@@ -1,0 +1,18 @@
+{% extends 'polaris/base.html' %}
+
+{% block title %}Eliminar cargo (VBF){% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Eliminar cargo <small class="text-muted fs-6">(VBF)</small></h1>
+
+<p>¿Está seguro de que desea eliminar el cargo <strong>{{ cargo }}</strong>?</p>
+{% if cargo.empleados.count %}
+<p class="text-danger">Este cargo tiene {{ cargo.empleados.count }} empleado(s) asociado(s). Al eliminarlo también se eliminarán esos empleados.</p>
+{% endif %}
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Sí, eliminar</button>
+    <a href="{% url 'fbv:cargo_list' %}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}
